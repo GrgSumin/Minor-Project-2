@@ -65,3 +65,8 @@
   font-size: 20px;
 
 }
+.filter-card{
+  background-color: aliceblue;
+  border-radius: 8px;
+  padding: 10px 15px;
+}

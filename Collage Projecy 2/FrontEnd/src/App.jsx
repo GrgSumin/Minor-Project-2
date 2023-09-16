@@ -13,6 +13,7 @@ import { Button, Card, Grid, GridItem, Stack } from "@chakra-ui/react";
 import Cart from "./components/Cart";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import OurSTore from "./Stores/OurSTore";
 
 function App() {
   // const [currentForm, setCurrentForm] = useState("login");
@@ -37,7 +38,7 @@ function App() {
         <Route exact path="/login" Component={Login} />
         <Route exact path="home" Component={HomePage} />
         <Route path="/register" Component={Register} />
-
+        <Route path="/store" Component={OurSTore} />
         <Route path="/Detail/:id" Component={Detail} />
         <Route path="/cart" Component={Cart} />
       </Routes>
