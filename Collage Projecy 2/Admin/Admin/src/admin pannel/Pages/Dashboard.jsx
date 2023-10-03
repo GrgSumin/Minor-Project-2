@@ -36,7 +36,7 @@ function Dashboard() {
         <div className="Money d-flex justify-content-between align-items-end flex-grow-1 p-3 rounded-3">
           <div>
             <div>
-              <p className="mb-0">Total</p>
+              <p className="mb-0">Total sells</p>
               <h4>Rs 10000</h4>
               <div>
                 <h5>40% up</h5>
@@ -48,7 +48,7 @@ function Dashboard() {
         <div className="Money d-flex justify-content-between align-items-end flex-grow-1 p-3 rounded-3">
           <div>
             <div>
-              <p className="mb-0">Total</p>
+              <p className="mb-0">Average order value</p>
               <h4>Rs 10000</h4>
               <div>
                 <h5>40% down</h5>
@@ -60,7 +60,7 @@ function Dashboard() {
         <div className="Money d-flex justify-content-between align-items-end flex-grow-1 p-3 rounded-3">
           <div>
             <div>
-              <p className="mb-0">Total</p>
+              <p className="mb-0">Total orders</p>
               <h4>Rs 10000</h4>
               <div>
                 <h5>40% up</h5>

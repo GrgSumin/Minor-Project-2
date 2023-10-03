@@ -59,6 +59,7 @@ function Navbar() {
           <li>
             <Link to="/store">Our Products</Link>
           </li>
+
           <div>
             <li>
               <NavLink to="/cart">

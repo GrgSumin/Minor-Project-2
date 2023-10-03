@@ -5,6 +5,7 @@ import { SiBrandfolder } from "react-icons/si";
 import { FaClipboardList } from "react-icons/fa";
 import { IoIosNotifications } from "react-icons/io";
 import { MdOutlineProductionQuantityLimits } from "react-icons/md";
+import { VscSignOut } from "react-icons/vsc";
 
 import {
   MenuFoldOutlined,
@@ -138,6 +139,8 @@ function MainLayout() {
                 <h5 className="mb-0">Sumin</h5>
                 <p className="mb-0">Sumin@gmail.com</p>
               </div>
+              <button>SignOut</button>
+              <VscSignOut />
             </div>
           </div>
         </Header>
