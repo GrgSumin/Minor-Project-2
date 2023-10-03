@@ -1,0 +1,109 @@
+.collection{
+  display: flex;
+  gap: 50px;
+  border: solid aliceblue;
+  border-radius: 12px;
+  padding: 10px;
+  
+  
+}
+.card-wrapper{
+  background-color: white; 
+  padding: 15px;
+  
+ 
+}
+.product-card{
+  padding: 10px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow:5px 5px 5px 5px aliceblue ;
+  
+
+  
+
+  
+}
+
+.product-card .product-detail h6{
+  color: black;
+  font-family: cursive;
+  display: flex;
+  justify-content: center;
+}
+.product-card .product-detail h5{
+  color: black;
+  font-family: cursive;
+  display: flex;
+  justify-content: center;
+  
+}
+.product-card .product-detail p.price{
+  color: black;
+  font-family: cursive;
+  display: flex;
+  justify-content: center;
+  
+}
+
+.wishlist-icon{
+  top: 4%;
+  right: 15px;
+  font-size: 18px;
+
+}
+.d-flex{
+  top: 10%;
+  right: 15px;
+  font-size: 20px;
+
+
+}
+.d-flex1{
+  top: 16%;
+  right: 13px;
+  font-size: 20px;
+
+}
+.filter-card{
+  background-color: aliceblue;
+  border-radius: 8px;
+  padding: 10px 15px;
+}
+.ant-layout-header{
+  background-color: white;
+}
+.ant-layout-sider{
+  flex: 0 0 250px !important;
+  max-width: 250px !important;
+  min-width: 250px !important;
+  width: 250px !important;
+}
+.ant-layout-sider-collapsed{
+  flex: 0 0 80px !important;
+  max-width: 80px !important;
+  min-width: 80px !important;
+  width: 80px !important;
+}
+.ant-layout-sider-collapsed .Half-logo{
+  display: block;
+}
+.ant-layout-sider-collapsed .Full-logo{
+  display: none;
+}
+.Half-logo{
+  display: none;
+}
+
+
+
+.Logo{
+  background-color: orangered;
+  color: aliceblue;
+  border: solid;
+  border-color: orangered;
+  border-radius: 5px;
+  margin: 10px;
+  height: 100px;
+ 
+}
