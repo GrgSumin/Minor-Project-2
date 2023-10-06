@@ -4,13 +4,10 @@ const userSchema = new mongoose.Schema({
   Email: {
     type: String,
     required: true,
-    
-
   },
   Username: {
     type: String,
     required: true,
-    
   },
   Password: {
     type: String,
@@ -24,10 +21,10 @@ const userSchema = new mongoose.Schema({
     type: Number,
     default: 0,
   },
- Role:{
-    type:String,
-    default:"user",
-  }
+  Role: {
+    type: String,
+    default: "user",
+  },
 });
 
 let collectionname = "User";

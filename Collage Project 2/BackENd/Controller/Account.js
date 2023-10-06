@@ -1,10 +1,12 @@
 const User = require("../model/User");
 const md5 = require("md5");
-const { generateToken } = require("../Config/jwtToken");
+// const { generateToken } = require("../Config/jwtToken");
 
 const register = async (req, res) => {
-  const { Username, Email, Password,Phonenumber,Points } = req.body;
-  let user = await User.findOne({ $or: [{ Email: Email }, { Username: Username }] })
+  const { Username, Email, Password, Phonenumber } = req.body;
+  let user = await User.findOne({
+    $or: [{ Email: Email }, { Username: Username }],
+  })
     .then((user) => {
       if (user) {
         res.status(200).json({
@@ -17,10 +19,9 @@ const register = async (req, res) => {
           Email: Email,
           Password: md5(Password),
           Phonenumber: Phonenumber,
-          Points:0,
           // message:"Email not verified",
         });
-         newUser.save().then(() => {
+        newUser.save().then(() => {
           res.json({
             regsiterStatus: true,
             message: "Acoount created sucessfully",
@@ -29,28 +30,31 @@ const register = async (req, res) => {
       }
     })
     .catch((error) => {
-      res.status(500).json({ error: error });
       console.log(error);
+      res.status(500).json({ error: error });
     });
 };
 
 const login = async (req, res) => {
   const { Email, Password } = req.body;
 
-  let user = await User.findOne({ Email: Email, Password: md5(Password) }).then((user) => {
-    if (user) {
-      res.status(200).json({
-        loginStatus: true,
-        message: "Logged in Sucessfully",
-      });
-    } else {
-      res.status(200).json({
-        loginStatus: false,
-        message: "Email or password does not match",
-        // token: generateToken(user?._id)
-      });
+  let user = await User.findOne({ Email: Email, Password: md5(Password) }).then(
+    (user) => {
+      if (user) {
+        res.status(200).json({
+          loginStatus: true,
+          id: user.id,
+          message: "Logged in Sucessfully",
+        });
+      } else {
+        res.status(200).json({
+          loginStatus: false,
+          message: "Email or password does not match",
+          // token: generateToken(user?._id)
+        });
+      }
     }
-  });
+  );
 };
 
 const LoadInfo = async (req, res) => {
@@ -71,7 +75,7 @@ const LoadInfo = async (req, res) => {
       });
     }
   });
- };
+};
 // const updateUser = async(req,res)=>{
 //   const { id } = req.params;
 //   const {Username, Email, Phonenumber} = req.body;

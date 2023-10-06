@@ -2,21 +2,26 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
-const morgan = require("morgan")
+const morgan = require("morgan");
 
 dotenv.config();
 const cors = require("cors");
+app.use("/static", express.static("uploads"));
+app.use(cors({ origin: "*" }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan());
 
-
 const port = process.env.PORT || 4000;
-
 
 const accRoutes = require("./Routes/Accounts");
 const productRoutes = require("./Routes/ProductRoute");
-
+const CategoryRoutes = require("./Routes/CategoryRoute");
+const BrandRoutes = require("./Routes/BrandRoutes");
+const OrderRoutes = require("./Routes/OrdersRoute");
+const CartRoutes = require("./Routes/CartRoute");
+const PromotionRoutes = require("./Routes/PromotionRoute");
+const FavRoutes = require("./Routes/FavRoute");
 
 mongoose
   .connect(process.env.DB_URL, {
@@ -32,8 +37,12 @@ mongoose
 
 app.use("/api/accounts", accRoutes);
 app.use("/api/product", productRoutes);
-
-
+app.use("/api/category", CategoryRoutes);
+app.use("/api/brand", BrandRoutes);
+app.use("/api/order", OrderRoutes);
+app.use("/api/cart", CartRoutes);
+app.use("/api/promotion", PromotionRoutes);
+app.use("/api/fav", FavRoutes);
 
 app.listen(port, () => {
   console.log("listining at PORT", port);

@@ -1,41 +1,34 @@
-import { Table } from "antd";
+import {
+  Table,
+  Thead,
+  Tbody,
+  Tfoot,
+  Tr,
+  Th,
+  Td,
+  TableCaption,
+  TableContainer,
+} from "@chakra-ui/react";
 import React from "react";
-const columns = [
-  {
-    title: "SNo",
-    dataIndex: "key",
-  },
-  {
-    title: "Name",
-    dataIndex: "name",
-  },
-  {
-    title: "Product",
-    dataIndex: "product",
-  },
-  {
-    title: "Status",
-    dataIndex: "status",
-  },
-];
-const data1 = [];
-for (let i = 0; i < 46; i++) {
-  data1.push({
-    key: i,
-    name: `Edward King ${i}`,
-    product: 32,
-    Status: `London, Park Lane no. ${i}`,
-  });
-}
 
 function ProductList() {
   return (
-    <div>
-      <h1 className="nb-4">All the Products</h1>
-      <div>
-        <Table columns={columns} dataSource={data1} />
-      </div>
-    </div>
+    <TableContainer>
+      <Table variant="simple">
+        <Thead>
+          <Tr>
+            <Th>SN</Th>
+            <Th>Brand</Th>
+          </Tr>
+        </Thead>
+        <Tbody>
+          <Tr>
+            <Td>inches</Td>
+            <Td>millimetres (mm)</Td>
+          </Tr>
+        </Tbody>
+      </Table>
+    </TableContainer>
   );
 }
 

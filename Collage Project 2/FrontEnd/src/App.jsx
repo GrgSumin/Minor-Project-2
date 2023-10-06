@@ -8,12 +8,14 @@ import HomePage from "./components/HomePage";
 import About from "./components/About";
 import { Route, Router, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import Detail from "./components/Detail";
+// import Detail from "./components/Detail";
 import { Button, Card, Grid, GridItem, Stack } from "@chakra-ui/react";
 import Cart from "./components/Cart";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import OurSTore from "./Stores/OurSTore";
+import ProductDetail from "./Stores/ProductDetail";
+import Payment from "./Stores/Payment";
 
 function App() {
   // const [currentForm, setCurrentForm] = useState("login");
@@ -21,13 +23,18 @@ function App() {
     <>
       <div
         style={{
-          backgroundColor: "black",
+          backgroundColor: "grey",
           color: "white",
           display: "flex",
           justifyContent: "center",
         }}
       >
-        <h1>Welcome to Instrument Mania</h1>
+        <div
+          className="logo"
+          style={{ width: "10%", height: "10%", backgroundColor: "gray" }}
+        >
+          <img src="logo1.png" />
+        </div>
       </div>
       <hr />
       <Header />
@@ -39,8 +46,10 @@ function App() {
         <Route exact path="home" Component={HomePage} />
         <Route path="/register" Component={Register} />
         <Route path="/store" Component={OurSTore} />
-        <Route path="/Detail/:id" Component={Detail} />
+        {/* <Route path="/Detail/:id" Component={Detail} /> */}
         <Route path="/cart" Component={Cart} />
+        <Route path="/detail" Component={ProductDetail} />
+        <Route path="/payment" Component={Payment} />
       </Routes>
       <hr />
       <Footer />

@@ -133,7 +133,7 @@ function MainLayout() {
             </div>
             <div className="d-flex gap-3 align-items-center">
               <div>
-                <img src="Guitar.jpg" alt="" height="20px" width="50px" />
+                {/* <img src="/Guitar.jpg" alt="" height="20px" width="50px" /> */}
               </div>
               <div>
                 <h5 className="mb-0">Sumin</h5>
