@@ -12,15 +12,16 @@ function Footer() {
           border: "1px solid",
           padding: "10px",
           boxShadow: "5px 10px black",
-          margin: 15,
+          margin: "auto",
+        
         }}
       >
         <div
           style={{
-            height: "50vh",
+            height: "17vh",
             width: "50px",
             display: "flex",
-            gap: 650,
+            gap: 500,
           }}
         >
           <div

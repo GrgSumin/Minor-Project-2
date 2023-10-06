@@ -8,6 +8,7 @@ function Brands() {
       <div>
         <h
           style={{
+            
             display: "flex",
             justifyContent: "center",
             fontFamily: "cursive",
@@ -16,7 +17,7 @@ function Brands() {
         >
           Our Brands
         </h>
-        <section className="marque-wrapper py-5">
+        <section className="marque-wrapper py-5" style={{margin:"auto"}}>
           <div className="container-xxl">
             <div className="row">
               <div className="col-12">

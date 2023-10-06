@@ -1,106 +1,93 @@
-import {
-  Box,
-  Button,
-  ButtonGroup,
-  Card,
-  CardBody,
-  CardFooter,
-  Divider,
-  FormLabel,
-  Heading,
-  Indicator,
-  Input,
-  Stack,
-  Text,
-  Image,
-  flexbox,
-  Center,
-} from "@chakra-ui/react";
+
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import { TfiShoppingCartFull } from "react-icons/tfi";
 import { CgClose, CgMenu } from "react-icons/cg";
 import { BsSearch } from "react-icons/bs";
+import "../App.css";
+import { AiFillApple } from "react-icons/ai";
+
 
 function Navbar() {
   return (
-    <div>
-      <Box
-        backgroundColor={"black"}
-        color={"white"}
-        display={"flex"}
-        justifyContent={"center"}
-        gap={5}
-      >
-        <ul
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            listStyle: "none",
-            display: "flex",
-            margin: 10,
-            gap: 35,
-            width: 500,
-            padding: 5,
-          }}
-        >
-          <li>
-            <Link to="/home">Home</Link>
-          </li>
-          <li>
-            <Link to="/login">Login</Link>
-          </li>
-          <li>
-            <Link to="">Contact US</Link>
-          </li>
-          <li>
-            <Link to="/about">About us</Link>
-          </li>
-          <li>
-            <Link to="/store">Our Products</Link>
-          </li>
 
-          <div>
+  <div>
+    <nav className="navbar navbar-expand-lg bg-body-tertiary" style={{boxShadow:"6px 5px lightgray" ,fontFamily: "cursive"}}>
+      <a className="navbar-brand" href="#">
+        <img
+          src="https://icons.veryicon.com/png/o/object/material_design_icons/guitar-23.png"
+          width="40"
+          height="24"
+        />
+      </a>
+
+      <div className="container-fluid">
+        <a className="navbar-brand" href="#">
+          InstrumentMania
+        </a>
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+          <li className="nav-item">
+              <Link
+                to="/home"
+                className="nav-link active"
+                aria-current="page"
+              >
+                Home
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/login" className="nav-link active" aria-current="page">
+                Login
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link
+                to="/registers"
+                className="nav-link active"
+                aria-current="page"
+              >
+                MyOrders
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/about" className="nav-link active" aria-current="page">
+                About
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/store" className="nav-link active" aria-current="page">
+                Our Products
+              </Link>
+            </li>
             <li>
               <NavLink to="/cart">
                 <TfiShoppingCartFull
                   style={{
-                    height: 34,
-                    width: 40,
+                    height: 24,
+                    width: 30,
+                    color:"black",
+                    margin:"8px"
                   }}
                 />
-                <span
-                  style={{
-                    width: "1.4rem",
-                    height: "1.4rem",
-                    backgroundColor: "white",
-                    color: "#000",
-                    borderRadious: "50%",
-                    position: "absolute",
-                    display: "grid",
-                    placeItems: Center,
-                  }}
-                >
-                  10
-                </span>
+               
               </NavLink>
             </li>
-          </div>
-        </ul>
-        <Box>
-          <div className="input-group mb-3">
-            <input
-              type="text"
-              className="form-control"
-              placeholder="Search here"
-              aria-label="Search here"
-              aria-describedby="basic-addon2"
-            />
-            <span className="input-group-text" id="basic-addon2">
-              <BsSearch />
-            </span>
-          </div>
-        </Box>
+          </ul>
+          
+        
+  
         <div
           style={{
             display: "none",
@@ -125,8 +112,28 @@ function Navbar() {
             }}
           />
         </div>
-      </Box>
-    </div>
+          <form className="d-flex" role="search">
+            <input
+              className="form-control me-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+            />
+            <NavLink>
+              <AiFillApple />
+            </NavLink>
+
+            <button className="btn btn-outline-success" type="submit">
+              Search
+            </button>
+          </form>
+        </div>
+      </div>
+    </nav>
+  </div>
+       
+
+    
   );
 }
 

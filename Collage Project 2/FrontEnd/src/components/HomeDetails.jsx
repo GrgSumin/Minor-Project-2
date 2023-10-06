@@ -10,6 +10,8 @@ import {
 } from "@chakra-ui/react";
 import React from "react";
 import { NavLink } from "react-router-dom";
+import {GiGuitar } from "react-icons/gi";
+
 
 function HomeDetails({ Mydata }) {
   const { names } = Mydata;
@@ -18,36 +20,29 @@ function HomeDetails({ Mydata }) {
       <GridItem w="100%" h="500">
         <Stack direction="row">
           <Image
-            boxSize="200px"
+            boxSize="500px"
             objectFit="cover"
-            src="https://bit.ly/dan-abramov"
+            src="guitarnation.jpg"
             alt="Dan Abramov"
+            className="cols"
           />
-          <Image
-            boxSize="250px"
-            objectFit="cover"
-            src="https://bit.ly/dan-abramov"
-            alt="Dan Abramov"
-          />
-          <Image
-            boxSize="300px"
-            src="https://bit.ly/dan-abramov"
-            alt="Dan Abramov"
-          />
+          
+          
         </Stack>
       </GridItem>
-      <GridItem w="100%" h="500">
+      <GridItem w="100%" h="500" style={{border:"solid gray"}}>
         <GridItem pl="2" area={"header"} margin={2}>
+          <div style={{display:"flex", justifyContent:"center" }}>
+            <GiGuitar style={{fontSize: 50}} />
           <Text fontSize="40px">{names}</Text>
+          </div>
         </GridItem>
         <GridItem pl="2" area={"main"}>
-          In publishing and graphic design, Lorem ipsum is a placeholder text
-          commonly used to demonstrate the visual form of a document or a
-          typeface without relying on meaningful content. Lorem ipsum may be
-          used as a placeholder before final copy is available
+        Instrument mania is a one stop place to get the entire range of musical instruments. 
+        Connect with us for all the musical information, knowledge, tips and updates.
         </GridItem>
         <GridItem pl="2" area={"footer"} margin={3}>
-          <Button colorScheme="linkedin">Explore Now</Button>
+          
         </GridItem>
       </GridItem>
     </Grid>

@@ -16,54 +16,47 @@ function Login() {
   };
 
   return (
-    <Box
-      padding={10}
-      style={{
-        border: "solid",
-        margin: 100,
-        padding: 30,
-      }}
-    >
-      <h1
-        style={{
-          fontSize: 30,
-          margin: 20,
-        }}
-      >
+    
+      
+    <Box className="B-1">
+     
+      <h1>
         Login
       </h1>
+      
       <form onSubmit={handleSubmit} action="POST">
-        <label>Email address</label>
+        <div className="email-box">
+        <label className="email">Email address</label>
+        
         <Input
           value={email}
           type="email"
           onChange={(e) => setEmail(e.target.value)}
           name="email"
         />
+        </div>
+      <div className="pw">
         <label>Password</label>
+        </div>
         <Input
           value={password}
           type="password"
           onChange={(e) => setPassword(e.target.value)}
           name="password"
-          placeholder="enter more tha 8 characters"
+          placeholder="Enter more than 8 characters"
         />
-        <button
-          type="submit"
-          style={{
-            backgroundColor: "Gray",
-            border: " solid",
-            borderRadius: 5,
-            margin: 19,
-            padding: 8,
-          }}
-        >
+        <button className="button1"
+          type="submit">
           login
         </button>
         <br></br>
         <Link to="/register">sign up</Link>
       </form>
     </Box>
+    
+    
+    
+    
   );
 }
 

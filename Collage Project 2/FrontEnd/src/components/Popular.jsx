@@ -50,7 +50,7 @@ function Popular() {
               </div>
 
               <div className="product-image">
-                <img src="Gibson1.jpg" alt="guitar" />
+                <img src="Gibson1.jpg" alt="guitar" className="cols"/>
               </div>
               <div className="product-detail">
                 <h6 className="brand">Gibson</h6>
@@ -114,7 +114,7 @@ function Popular() {
               </div>
 
               <div className="product-image">
-                <img src="Gibson1.jpg" alt="guitar" />
+                <img src="Gibson1.jpg" alt="guitar" className="cols"/>
               </div>
               <div className="product-detail">
                 <h6 className="brand">Gibson</h6>

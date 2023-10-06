@@ -5,9 +5,9 @@ import Navbar from "./Navbar";
 
 function Header() {
   return (
-    <Box backgroundColor={"black"} color={"white"} padding={3} gap={5}>
+    <Box backgroundColor={"pink"} color={"white"} padding={3} gap={5} style={{display:"flex", justifyContent:"center"}}>
       <NavLink>
-        <img src="./Guitar.jpg" width="40" height="24" />
+        
       </NavLink>
       <Navbar />
     </Box>
