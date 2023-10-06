@@ -1,7 +1,7 @@
 import { Breadcrumb, Button } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { Helmet } from "react-helmet";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import ReactStars from "react-rating-stars-component";
 
 function OurSTore() {
@@ -17,7 +17,7 @@ function OurSTore() {
       </Helmet>
    
       <Breadcrumb title="Our Store"/>
-      <div className="store-wrapper home-wrapper-2 py-5">
+      <div className="store-wrapper home-wrapper-2 py-5" style={{}}>
         <div className="container-xxl">
           <div className="row">
             <div className="col-3">
@@ -172,12 +172,15 @@ function OurSTore() {
                </div>
               </div>
               <div className="products-list pb-5">
-              <div class="container text-center">
-                <div class="row">
-                  <div class="col">
-                    <img src="ibanez.jpeg" alt="amp1"/><h6>Ibanez Electric Guitar </h6>
+              <div className="container text-center">
+                <div className="row">
+                  <div className="col">
+                    <Link to="/detail">
+
+                    <img src="ibanez.jpeg" alt="amp1" className="cols" /><h6>Ibanez Electric Guitar </h6>
                     <ReactStars count={5} size={24} activeColor={"#ffd700"} />
                     <p className="price">Rs120000</p>
+                    </Link>
                     <div
                     style={{
                       display: "flex",
@@ -190,8 +193,8 @@ function OurSTore() {
                       </div>
                   </div>
              
-                  <div class="col">
-                    <img src="samick.jpg" alt="amp1"/><h6>Samick IC-30</h6>
+                  <div className="col">
+                    <img src="samick.jpg" alt="amp1" className="cols"/><h6>Samick IC-30</h6>
                     <ReactStars count={5} size={24} activeColor={"#ffd700"} />
                     <p className="price">Rs120000</p>
                     <div
@@ -205,8 +208,8 @@ function OurSTore() {
                       </Link>
                       </div>
                   </div>
-                  <div class="col">
-                    <img src="yamaha.jpg" alt="amp1"/><h6>Yamaha PACIFICA</h6>
+                  <div className="col">
+                    <img src="yamaha.jpg" alt="amp1" className="cols" /><h6>Yamaha PACIFICA</h6>
                     <ReactStars count={5} size={24} activeColor={"#ffd700"} />
                     <p className="price">Rs120000</p>
                     <div
@@ -225,10 +228,10 @@ function OurSTore() {
               </div>
 
               <div className="products-list pb-5">
-              <div class="container text-center">
+              <div className="container text-center">
                 <div class="row">
-                  <div class="col">
-                    <img src="hex.jpg" alt="amp1"/><h6>HEX Guitar</h6>
+                  <div className="col">
+                    <img src="hex.jpg" alt="amp1" className="cols" /><h6>HEX Guitar</h6>
                     <ReactStars count={5} size={24} activeColor={"#ffd700"} />
                     <p className="price">Rs120000</p>
                     <div
@@ -243,8 +246,8 @@ function OurSTore() {
                       </div>
                   </div>
                  
-                  <div class="col">
-                    <img src="yamaha.jpg" alt="amp1"/><h6>Yamaha Acoustic</h6>
+                  <div className="col">
+                    <img src="yamaha.jpg" alt="amp1" className="cols" /><h6>Yamaha Acoustic</h6>
                     <ReactStars count={5} size={24} activeColor={"#ffd700"} />
                     <p className="price">Rs120000</p>
                     <div
@@ -258,8 +261,8 @@ function OurSTore() {
                       </Link>
                       </div>
                   </div>
-                  <div class="col">
-                    <img src="kepma.jpg" alt="amp1"/><h6>Kepma Semi Acoustic Guitar</h6>
+                  <div className="col">
+                    <img src="kepma.jpg" alt="amp1" className="cols" /><h6>Kepma Semi Acoustic Guitar</h6>
                     <ReactStars count={5} size={24} activeColor={"#ffd700"} />
                     <p className="price">Rs120000</p>
                     <div
@@ -278,10 +281,10 @@ function OurSTore() {
               </div>
               
               <div className="products-list pb-5">
-              <div class="container text-center">
-                <div class="row">
-                  <div class="col">
-                    <img src="zoom.jpg" alt="amp1"/><h6>Zoom G1Xon pedal</h6>
+              <div className="container text-center">
+                <div className="row">
+                  <div className="col">
+                    <img src="zoom.jpg" alt="amp1" className="cols" /><h6>Zoom G1Xon pedal</h6>
                     <ReactStars count={5} size={24} activeColor={"#ffd700"} />
                     <p className="price">Rs120000</p>
                     <div
@@ -296,8 +299,8 @@ function OurSTore() {
                       </div>
                   </div>
                  
-                  <div class="col">
-                    <img src="audio.jpg" alt="amp1"/><h6>Focusrite Scarlett 2i2</h6>
+                  <div className="col">
+                    <img src="audio.jpg" alt="amp1" className="cols" /><h6>Focusrite Scarlett 2i2</h6>
                     <ReactStars count={5} size={24} activeColor={"#ffd700"} />
                     <p className="price">Rs120000</p>
                     <div
@@ -311,8 +314,8 @@ function OurSTore() {
                       </Link>
                       </div>
                   </div>
-                  <div class="col">
-                    <img src="orange.jpg" alt="amp1"/><h6>Orange 15w amplifier</h6>
+                  <div className="col">
+                    <img src="orange.jpg" alt="amp1" className="cols" /><h6>Orange 15w amplifier</h6>
                     <ReactStars count={5} size={24} activeColor={"#ffd700"} />
                     <p className="price">Rs120000</p>
                     <div
