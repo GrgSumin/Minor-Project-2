@@ -30,11 +30,14 @@ import {
   TableContainer,
 } from "@chakra-ui/react";
 import { useDispatchCart, UseCart } from "./Contextreducer";
+import { useCartContext } from "../context/CartContext";
 
 // import ReactImageZoom from "react-image-zoom";
 
 function ProductDetail() {
   let dispatch = useDispatchCart();
+
+  const { cartProducts, setCartProducts } = useCartContext();
   let datas = UseCart();
   const [products, setProducts] = useState([]);
   const location = useLocation();
@@ -68,17 +71,12 @@ function ProductDetail() {
         getAllReview();
       });
   };
-  const handleAddToCart = async () => {
-    await dispatch({
-      type: "ADD",
-      id: product._id,
-      title: product.title,
-      Brand: product.Brand,
-      Price: product.Price,
-      Quantity: qty,
-      Image: product.Image,
+  const handleAddToCart = async (productID) => {
+    axios.post("http://localhost:4000/api/cart/addCart", {
+      productID,
+      userID: localStorage.getItem("id"),
     });
-    console.log(datas);
+    setCartProducts((prev) => [...prev, product]);
   };
 
   return (
@@ -166,7 +164,7 @@ function ProductDetail() {
               <Button
                 variant="solid"
                 colorScheme="yellow"
-                onClick={handleAddToCart}
+                onClick={() => handleAddToCart(product._id)}
               >
                 Add to cart
               </Button>

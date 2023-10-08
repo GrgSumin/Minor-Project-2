@@ -51,8 +51,8 @@ function Login() {
         changeRegMessage(response.data.message);
         toast("Login in sucessfully");
         sessionStorage.setItem("LoggedIn", true);
+        localStorage.setItem("id", response.data.id);
         navigate("/store");
-        // localStorage.setItem("id", response.data.id);
       })
       .catch((error) => {
         console.log(error);

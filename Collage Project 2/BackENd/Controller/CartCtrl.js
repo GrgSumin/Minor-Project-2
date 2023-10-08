@@ -27,29 +27,9 @@ const addCart = async (req, res) => {
 const getCart = async (req, res) => {
   const { userID } = req.body;
   try {
-    const CartItems = await Cart.find({ userID: userID });
-    if (!CartItems || CartItems.length === 0) {
-      return res.json({ message: "there is no product in Cart" });
-    }
-    const tranformCartItems = await Promise.all(
-      CartItems.map(async (CartItem) => {
-        const product = await Product.findById(CartItem.productID);
-        return {
-          cartID: CartItem._id,
-          productID: product._id,
-          title: product.title,
-          Brand: product.Brand,
-          Category: product.Category,
-          Price: product.Price,
-          Quantity: product.Quantity,
-          Image: product.Image,
-          Availability: product.Availability,
-          Description: product.Description,
-          Ratings: product.Ratings,
-        };
-      })
-    );
-    res.json(tranformCartItems);
+    const CartItems = await Cart.find({ userID: userID }).populate("productID");
+
+    return res.json({ data: CartItems });
   } catch (error) {
     console.log(error);
   }

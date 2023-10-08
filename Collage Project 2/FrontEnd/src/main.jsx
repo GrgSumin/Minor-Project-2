@@ -5,12 +5,15 @@ import { ChakraProvider } from "@chakra-ui/react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { BrowserRouter } from "react-router-dom";
+import { ContextProvider } from "./context/CartContext.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <BrowserRouter>
     <ChakraProvider>
       <React.StrictMode>
-        <App />
+        <ContextProvider>
+          <App />
+        </ContextProvider>
         <ToastContainer />
       </React.StrictMode>
     </ChakraProvider>
