@@ -32,6 +32,16 @@ function BrandList() {
   }, []);
 
   console.log(data);
+  const deleteBrand = async (id) => {
+    try {
+      let result = await axios.delete(
+        `http://localhost:4000/api/brand/deleteBrand/${id}`
+      );
+      console.log("Item deleted successfully");
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <TableContainer>
       <Table variant="simple">
@@ -46,6 +56,15 @@ function BrandList() {
             <Tr key={d._id}>
               <Td>{index + 1}</Td>
               <Td>{d.title}</Td>
+              <Td>
+                <button
+                  type="button"
+                  className="btn btn-danger"
+                  onClick={() => deleteBrand(d._id)}
+                >
+                  Delete
+                </button>
+              </Td>
             </Tr>
           ))}
         </Tbody>

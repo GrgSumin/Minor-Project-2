@@ -27,6 +27,7 @@ const register = async (req, res) => {
             message: "Acoount created sucessfully",
           });
         });
+        const token = newUser.generateAuthToken();
       }
     })
     .catch((error) => {

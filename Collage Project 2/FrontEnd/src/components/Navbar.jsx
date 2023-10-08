@@ -7,6 +7,8 @@ import "../App.css";
 import { AiFillApple } from "react-icons/ai";
 
 function Navbar() {
+  const isLoggedIn = !!sessionStorage.getItem("LoggedIn");
+
   return (
     <div>
       <nav
@@ -48,17 +50,30 @@ function Navbar() {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link
-                  to="/login"
-                  className="nav-link active"
-                  aria-current="page"
-                >
-                  {localStorage.getItem("id") ? "Logout" : "Login"}
-                </Link>
+                {!isLoggedIn ? (
+                  <Link
+                    to="/login"
+                    className="nav-link active"
+                    aria-current="page"
+                  >
+                    LogIn
+                  </Link>
+                ) : (
+                  <Link
+                    to="/home"
+                    className="nav-link active"
+                    aria-current="page"
+                    onClick={() => {
+                      sessionStorage.setItem("LoggedIn", false);
+                    }}
+                  >
+                    Logout
+                  </Link>
+                )}
               </li>
               <li className="nav-item">
                 <Link
-                  to="/registers"
+                  to="/orders"
                   className="nav-link active"
                   aria-current="page"
                 >

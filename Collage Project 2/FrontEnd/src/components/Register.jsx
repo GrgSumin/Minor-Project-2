@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Button, FormControl, FormLabel, Input } from "@chakra-ui/react";
-import { Link, Route, Routes } from "react-router-dom";
+import { Link, Route, Routes, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
@@ -11,6 +11,7 @@ function Register() {
   const [password, setPassword] = useState("");
   const [number, setNumber] = useState("");
   const [regMessage, setRegMessage] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     const changeRegMessage = (msg) => {
@@ -45,8 +46,8 @@ function Register() {
     axios
       .post("http://localhost:4000/api/accounts/register", requestBody)
       .then((response) => {
-        changeRegMessage(response.data.message);
-        toast("please fill the box");
+        changeRegMessage(toast("Account Created"));
+        navigate("/home");
       })
       .catch((error) => {
         console.log(error);

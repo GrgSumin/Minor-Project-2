@@ -48,5 +48,5 @@ const ProductSchema = new mongoose.Schema(
 
 //Export the model
 
-let collectionname = "Products";
+let collectionname = "Product";
 module.exports = mongoose.model(collectionname, ProductSchema);

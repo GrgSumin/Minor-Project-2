@@ -1,4 +1,4 @@
-import { Breadcrumb, Button } from "@chakra-ui/react";
+import { Breadcrumb, Button, Input } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { Helmet } from "react-helmet";
 import { Link, NavLink } from "react-router-dom";
@@ -8,6 +8,8 @@ import axios from "axios";
 
 function OurSTore() {
   const [products, setProducts] = useState([]);
+
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     const getAllProduct = async () => {
@@ -22,7 +24,20 @@ function OurSTore() {
 
   return (
     <div>
-      <h1>Welcome</h1>
+      <h1
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          fontFamily: "cursive",
+        }}
+      >
+        Welcome
+      </h1>
+      <Input
+        placeholder="Search here ..."
+        onChange={(e) => setSearch(e.target.value)}
+        style={{ width: 300, margin: 10 }}
+      />
       <Helmet>
         <meta charSet="utf-8" />
         <title>Our Store</title>
@@ -30,18 +45,22 @@ function OurSTore() {
       </Helmet>
 
       <Breadcrumb title="Our Store" />
-      <div className="store-wrapper home-wrapper-2 py-5" style={{}}>
+      <div
+        className="store-wrapper home-wrapper-2 py-5"
+        style={{ border: "2px solid aliceblue" }}
+      >
         <div className="container-xxl">
           <div className="row">
             <div className="col-3">
               <div className="filter-card ">
                 <h3 className="filter-title">Shop by Categories</h3>
+
                 <div>
                   <ul className="ps-0 ">
-                    <li>Guitars</li>
-                    <li>Ukulele </li>
-                    <li>Bass</li>
-                    <li>Keyboards</li>
+                    <li>Guitar</li>
+                    <li>Keyboard</li>
+                    <li>Drum</li>
+                    <li>Pedal</li>
                   </ul>
                 </div>
               </div>
@@ -169,37 +188,35 @@ function OurSTore() {
                   <div className="d-flex align-items-center gap-10"></div>
                 </div>
               </div>
-              <div className="products-list pb-5">
-                <div className="container text-center">
-                  <div className="row">
-                    {products.map((product) => (
-                      <div className="col">
-                        <Link to="/detail">
-                          <img
-                            src={`http://localhost:4000/static/${product.Image}`}
-                            alt="amp1"
-                            className="cols"
-                          />
-                          <h6>{product.title}</h6>
-                          <ReactStars
-                            count={5}
-                            size={24}
-                            activeColor={"#ffd700"}
-                          />
-                          <p className="price">Rs {product.Price}</p>
-                        </Link>
-                        <div
-                          style={{
-                            display: "flex",
-                            justifyContent: "center",
-                          }}
-                        >
-                          <Link to="/cart">
-                            <Button colorScheme="twitter">Buy Now</Button>
+              <div className="products-list" style={{ display: "grid" }}>
+                <div className="container ">
+                  <div className="row w-30">
+                    {products.map((product) => {
+                      if (!product.title.trim().includes(search.trim())) {
+                        return;
+                      }
+                      return (
+                        <div className="col">
+                          <Link to="/detail" state={product}>
+                            <img
+                              src={`http://localhost:4000/static/${product.Image}`}
+                              alt="amp1"
+                              width="550"
+                              height="550"
+                              className="cols"
+                            />
+                            <h6>{product.Brand}</h6>
+                            <h6>{product.title}</h6>
+                            <ReactStars
+                              count={5}
+                              size={24}
+                              activeColor={"#ffd700"}
+                            />
+                            <p className="price">Rs {product.Price}</p>
                           </Link>
                         </div>
-                      </div>
-                    ))}
+                      );
+                    })}
                   </div>
                 </div>
               </div>

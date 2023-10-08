@@ -10,7 +10,7 @@ const router = express.Router();
 
 router.post("/createBrand", createBrand);
 router.post("/updateBrand", updateBrand);
-router.post("/deleteBrand", deleteBrand);
+router.delete("/deleteBran/:BrandId", deleteBrand);
 router.get("/getBrand/:BrandId", getBrand);
 router.get("/getallBrand", getallBrands);
 

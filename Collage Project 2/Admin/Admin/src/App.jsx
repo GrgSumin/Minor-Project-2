@@ -23,7 +23,7 @@ function App() {
     <>
       {/* <HomePage /> */}
       <Routes>
-        <Route path="/Admin" element={<MainLayout />}>
+        <Route path="/" element={<MainLayout />}>
           <Route index element={<Dashboard />} />
           <Route path="enquiries" element={<Enquiries />} />
           <Route path="orders" element={<Orders />} />

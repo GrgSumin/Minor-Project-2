@@ -21,6 +21,7 @@ function AddCategory() {
         console.log(error);
       });
   };
+
   return (
     <div>
       <h1 className="mb-4">Add Categories</h1>

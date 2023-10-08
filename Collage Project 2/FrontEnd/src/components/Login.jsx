@@ -50,8 +50,9 @@ function Login() {
       .then((response) => {
         changeRegMessage(response.data.message);
         toast("Login in sucessfully");
+        sessionStorage.setItem("LoggedIn", true);
         navigate("/store");
-        localStorage.setItem("id", response.data.id);
+        // localStorage.setItem("id", response.data.id);
       })
       .catch((error) => {
         console.log(error);
@@ -63,7 +64,6 @@ function Login() {
       <div className="form">
         <div className="form1">
           <h1>Login</h1>
-
           <form onSubmit={handleSubmit} action="POST">
             <div className="boxs">
               <label className="email">Email address</label>

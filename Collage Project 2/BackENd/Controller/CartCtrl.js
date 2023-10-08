@@ -3,16 +3,16 @@ const Product = require("../model/Product");
 
 const addCart = async (req, res) => {
   try {
-    const cartItem = await Cart.find({ userID, productID });
+    const { userID, productID } = req.body;
+    const cartItem = await Cart.findOne({ userID, productID });
 
     if (cartItem) {
       return res.json({ message: "Item already exists in cart" });
     }
-    const { userID, productID } = req.body;
 
     const newCart = new Cart({
       userID: userID,
-      productID: productID,
+      productID,
     });
     await newCart.save();
 
@@ -20,6 +20,7 @@ const addCart = async (req, res) => {
   } catch (error) {
     console.log(error);
     res.status(500).json({ message: "Server Error " });
+    console.log(error);
   }
 };
 

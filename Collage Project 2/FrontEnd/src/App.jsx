@@ -16,6 +16,8 @@ import Footer from "./components/Footer";
 import OurSTore from "./Stores/OurSTore";
 import ProductDetail from "./Stores/ProductDetail";
 import Payment from "./Stores/Payment";
+import MyOrder from "./Stores/MyOrder";
+import { CartProvider } from "./Stores/Contextreducer";
 
 function App() {
   // const [currentForm, setCurrentForm] = useState("login");
@@ -40,17 +42,20 @@ function App() {
       <Header />
 
       {/* <HomePage /> */}
-      <Routes>
-        <Route exact path="/about" Component={About} />
-        <Route exact path="/login" Component={Login} />
-        <Route exact path="home" Component={HomePage} />
-        <Route path="/register" Component={Register} />
-        <Route path="/store" Component={OurSTore} />
-        {/* <Route path="/Detail/:id" Component={Detail} /> */}
-        <Route path="/cart" Component={Cart} />
-        <Route path="/detail" Component={ProductDetail} />
-        <Route path="/payment" Component={Payment} />
-      </Routes>
+      <CartProvider>
+        <Routes>
+          <Route exact path="/about" Component={About} />
+          <Route exact path="/login" Component={Login} />
+          <Route exact path="home" Component={HomePage} />
+          <Route path="/register" Component={Register} />
+          <Route path="/store" Component={OurSTore} />
+          {/* <Route path="/Detail/:id" Component={Detail} /> */}
+          <Route path="/cart" Component={Cart} />
+          <Route path="/detail" Component={ProductDetail} />
+          <Route path="/payment" Component={Payment} />
+          <Route path="/orders" Component={MyOrder} />
+        </Routes>
+      </CartProvider>
       <hr />
       <Footer />
     </>

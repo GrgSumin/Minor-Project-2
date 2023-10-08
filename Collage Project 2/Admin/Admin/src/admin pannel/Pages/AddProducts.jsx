@@ -2,6 +2,7 @@ import { Input } from "@chakra-ui/react";
 import axios from "axios";
 import React from "react";
 import { useEffect } from "react";
+import { ToastContainer, toast } from "react-toastify";
 import { useState } from "react";
 
 function AddProducts() {
@@ -63,6 +64,7 @@ function AddProducts() {
       title: "",
       description: "",
     });
+    toast("product added");
   };
 
   return (
