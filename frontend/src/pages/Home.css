@@ -1,0 +1,109 @@
+.hero {
+  background: #fff;
+  border-bottom: 1px solid var(--border);
+}
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 40px;
+  align-items: center;
+  padding: 60px 20px;
+}
+.hero-pill {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 4px 10px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+.hero-text h1 {
+  font-size: 48px;
+  line-height: 1.1;
+  margin-bottom: 16px;
+  letter-spacing: -0.02em;
+}
+.hero-text p { font-size: 16px; margin-bottom: 24px; max-width: 480px; }
+
+.hero-art {
+  position: relative;
+  height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero-circle {
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  position: relative;
+}
+.hero-circle::before {
+  content: "🎸";
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 140px;
+  opacity: 0.95;
+}
+
+.value-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 36px 20px;
+  border-bottom: 1px solid var(--border);
+}
+.value-row > div {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 14px;
+}
+.value-row svg { font-size: 22px; color: var(--text); }
+.value-row strong { display: block; font-size: 14px; }
+.value-row span { color: var(--text-muted); font-size: 13px; }
+
+.cat-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 14px;
+}
+.cat-tile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 24px 12px;
+  font-weight: 500;
+  font-size: 14px;
+  text-align: center;
+  transition: background 0.15s, border-color 0.15s;
+}
+.cat-tile:hover { background: #fff; border-color: var(--text); }
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 900px) {
+  .hero-inner { grid-template-columns: 1fr; padding: 40px 20px; }
+  .hero-art { display: none; }
+  .hero-text h1 { font-size: 34px; }
+  .value-row { grid-template-columns: 1fr; }
+  .cat-grid { grid-template-columns: repeat(3, 1fr); }
+  .product-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+  .cat-grid { grid-template-columns: repeat(2, 1fr); }
+}
