@@ -36,3 +36,21 @@ cd admin && yarn install && yarn dev
 The first time the backend starts, an admin user is seeded from `SEED_ADMIN_EMAIL` / `SEED_ADMIN_PASSWORD` in your `.env`. Sign into the admin panel with those credentials.
 
 `yarn seed` adds brands, categories, and products without touching existing data. `yarn seed:wipe` clears the catalog first and reseeds from scratch.
+
+## Deployment
+
+Production setup targets **Render** (backend) and **Vercel** (both React apps), tied together by a single custom domain pointed at three subdomains:
+
+| App | Hosted on | URL pattern |
+|---|---|---|
+| Storefront | Vercel | `yourdomain.com` |
+| Admin | Vercel | `admin.yourdomain.com` |
+| API | Render | `api.yourdomain.com` |
+
+The repo is deploy-ready:
+
+- `frontend/vercel.json` and `admin/vercel.json` rewrite all routes to `index.html` so React Router deep links survive a refresh.
+- `backend/App.js` reads `CORS_ORIGIN` (comma-separated origins) from env. Locally it stays unset and CORS is permissive; in production set it to the storefront + admin URLs.
+- All secrets live in Render/Vercel environment variables — `.env` is gitignored.
+
+Render free tier spins down after 15 minutes of idle traffic; the first request after sleep takes ~30 seconds to wake the backend up. Uploads to the local filesystem are ephemeral on free tier — seed images are restored automatically by the seed script, but customer-uploaded photos would be wiped on redeploy. Swapping multer to Cloudinary or S3 is a small follow-up if persistent uploads matter.
