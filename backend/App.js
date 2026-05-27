@@ -7,7 +7,10 @@ const path = require("path");
 
 const connectDB = require("./config/db");
 const seedAdmin = require("./utils/seedAdmin");
+const syncSeedImages = require("./utils/syncSeedImages");
 const { notFound, errorHandler } = require("./middleware/errorMiddleware");
+
+syncSeedImages();
 
 const app = express();
 
